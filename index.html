@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pembahasan Kuis 2 KI1101 Kimia Dasar 1 (10 November 2026)</title>
+<meta name="description" content="Soal dan pembahasan Kuis 2 KI1101 Kimia Dasar 1: spektrum emisi spesi mirip hidrogen, bilangan kuantum fosfor, siklus Born–Haber K₂O, dan struktur Lewis SOCl₂.">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#ffffff; --parch:#f5f5f7; --ink:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7; --blue:#0066cc;
+  --sans:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter",system-ui,"Segoe UI",sans-serif;
+  --math:"STIX Two Text","Cambria Math",Cambria,Georgia,serif;
+  --ease:cubic-bezier(.16,1,.3,1); --spring:cubic-bezier(.34,1.56,.64,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){color-scheme:dark;--canvas:#000000;--parch:#111113;--ink:#f5f5f7;--muted:#a1a1a6;--line:#424245;--blue:#2997ff}
+}
+:root[data-theme="dark"]{color-scheme:dark;--canvas:#000000;--parch:#111113;--ink:#f5f5f7;--muted:#a1a1a6;--line:#424245;--blue:#2997ff}
+
+*,*::before,*::after{box-sizing:inherit}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 60px)}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.47;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:#000}
+button{font:inherit;color:inherit;letter-spacing:inherit}
+:focus-visible{outline:3px solid var(--acc,var(--blue));outline-offset:3px;border-radius:8px}
+
+/* tiles */
+.tile{background:var(--bg);color:var(--fg);padding:88px 22px;position:relative;overflow:hidden}
+.t-canvas{--bg:var(--canvas);--fg:var(--ink);--mut:var(--muted);--ln:var(--line);--acc:var(--blue);--stage:var(--parch)}
+.t-parch{--bg:var(--parch);--fg:var(--ink);--mut:var(--muted);--ln:var(--line);--acc:var(--blue);--stage:var(--canvas)}
+.t-dark{--bg:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--ln:#424245;--acc:#2997ff;--stage:#000000}
+.t-black{--bg:#000000;--fg:#f5f5f7;--mut:#a1a1a6;--ln:#424245;--acc:#2997ff;--stage:#1d1d1f}
+.wide{max-width:980px;margin:0 auto}
+.col{max-width:692px;margin:0 auto}
+@media (min-width:735px){.tile{padding:120px 32px}}
+
+/* nav */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.8);color:#f5f5f7;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
+.top .wide{display:flex;align-items:center;gap:4px;height:48px;padding:0 16px}
+.brand{font-weight:600;font-size:14px;margin-right:auto;white-space:nowrap}
+.nav{display:flex}
+.nav button{height:44px;min-width:44px;padding:0 10px;border:0;background:none;cursor:pointer;font-size:13px;color:#f5f5f7;opacity:.72;transition:opacity .25s}
+.nav button:hover,.nav button[aria-current="true"]{opacity:1}
+.nav button[aria-current="true"]{font-weight:600}
+.nav button span{display:none}
+.all{height:32px;padding:0 14px;border:0;border-radius:999px;background:#2997ff;color:#fff;font-size:13px;cursor:pointer;white-space:nowrap;margin-left:6px;position:relative}
+.all::after{content:"";position:absolute;inset:-6px 0}
+.bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:#2997ff;transform:scaleX(0);transform-origin:0 50%}
+@media (min-width:600px){.nav button span{display:inline}.nav button{padding:0 14px}}
+@media (max-width:440px){.brand{display:none}.nav{margin-right:auto}}
+
+/* hero */
+.hero{min-height:min(100svh,880px);padding-top:96px;padding-bottom:0;display:flex;flex-direction:column;text-align:center}
+.hero-text{will-change:transform,opacity}
+.tag{font-size:17px;font-weight:600;color:var(--mut);margin:0 0 10px}
+h1{font-weight:600;font-size:clamp(2.75rem,9vw,5.5rem);line-height:1.04;letter-spacing:-.028em;margin:0}
+.lead{font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.25;color:var(--mut);max-width:26em;margin:22px auto 0;font-weight:400}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{min-height:44px;padding:0 22px;border-radius:999px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer;font-size:17px;transition:transform .35s var(--spring),background .2s}
+.btn.ghost{background:transparent;color:var(--acc)}
+.btn:active{transform:scale(.96)}
+.hero-spec{margin:auto -22px 0;padding-top:48px;transform-origin:50% 100%;will-change:transform}
+@media (min-width:735px){.hero-spec{margin:auto -32px 0}}
+.hero-spec svg{display:block;width:100%;height:clamp(180px,34vh,320px)}
+.sl{stroke:#fff;stroke-width:2.5;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:50% 100%}
+.sb{fill:#fff;transform-box:fill-box;transform-origin:50% 100%}
+.glow{filter:drop-shadow(0 0 7px rgba(255,255,255,.75)) drop-shadow(0 0 22px rgba(41,151,255,.55))}
+.js .hero-spec .sl,.js .hero-spec .sb,.js .plate .sl,.js .plate .sb{transform:scaleY(0)}
+.hero.in .sl,.hero.in .sb,.plate.play .sl,.plate.play .sb{animation:rise 1.2s var(--ease) both,flick 3.4s ease-in-out infinite alternate;animation-delay:calc(var(--d)*1ms + 500ms),calc(var(--d)*-37ms)}
+.plate.play .sl,.plate.play .sb{animation-delay:calc(var(--d)*1ms),calc(var(--d)*-37ms)}
+@keyframes rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes flick{from{opacity:1}to{opacity:.72}}
+
+/* reveal primitives */
+.mk{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.mk-i{display:block}
+.js .mk-i{transform:translateY(108%);transition:transform 1.1s var(--ease);transition-delay:calc(var(--d,0)*1ms)}
+.js .in .mk-i,.js .mk.in .mk-i{transform:none}
+.js .rv{opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .9s ease,transform 1s var(--ease),filter .9s ease;transition-delay:calc(var(--d,0)*1ms)}
+.js .rv.in,.js .in>.rv{opacity:1;transform:none;filter:none}
+
+/* overview */
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr;gap:20px}}
+.card{display:flex;flex-direction:column;gap:4px;text-align:left;min-height:210px;padding:28px;border-radius:18px;border:0;background:var(--stage);cursor:pointer;transition:transform .5s var(--ease)}
+.card:hover{transform:scale(1.02)}
+.card:active{transform:scale(.985)}
+.card svg{margin-bottom:auto;color:var(--acc)}
+.card svg *{transition:transform .6s var(--ease)}
+.card .k{font-size:14px;font-weight:600;color:var(--mut);margin-top:26px}
+.card .t{font-size:24px;font-weight:600;line-height:1.15;letter-spacing:-.015em}
+.card .meta{font-size:14px;color:var(--mut)}
+.only-m{display:none}
+@media (max-width:760px){.only-m{display:inline}}
+.card:hover .ic1 line{transform:scaleY(1.25)} .ic1 line{transform-box:fill-box;transform-origin:50% 100%}
+.card:hover .ic2 g{transform:translateY(-4px)}
+.card:hover .ic3 path{transform:translateX(4px)}
+.card:hover .ic4 g{transform:rotate(8deg)} .ic4 g{transform-box:fill-box;transform-origin:50% 60%}
+.data{margin:56px 0 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.chip{font-family:var(--math);font-size:16px;padding:9px 16px;border-radius:999px;background:var(--stage);white-space:nowrap}
+.chip.f{white-space:normal;border-radius:18px;padding:8px 18px}
+.data-l{flex-basis:100%;text-align:center;font-size:14px;font-weight:600;color:var(--mut);margin:0 0 4px}
+
+/* soal */
+.head{text-align:center;margin-bottom:48px}
+h2{font-weight:600;font-size:clamp(2.1rem,6vw,3.5rem);line-height:1.07;letter-spacing:-.022em;margin:0 auto;max-width:15em}
+.stem{font-size:clamp(1.1rem,2.2vw,1.3rem);line-height:1.4;color:var(--mut);max-width:34em;margin:22px auto 0}
+.stem b{color:var(--fg);font-weight:500}
+.stage{background:var(--stage);border-radius:18px;margin:0 auto 56px;padding:28px 18px 18px;position:relative;will-change:transform}
+.stage.plate{background:#000;color:#f5f5f7;--fg:#f5f5f7;--mut:#a1a1a6;padding:36px 0 18px}
+.t-black .stage.plate,.t-dark .stage.plate{background:#000}
+.scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.stage svg{display:block;height:auto;margin:0 auto}
+.stage figcaption,.cap{font-size:14px;color:var(--mut);text-align:center;margin-top:14px;padding:0 16px}
+.replay{position:absolute;top:12px;right:12px;height:32px;padding:0 12px;border-radius:999px;border:0;background:rgba(134,134,139,.24);color:inherit;font-size:13px;cursor:pointer}
+.replay::after{content:"";position:absolute;inset:-6px}
+figure{margin:0}
+
+.q{border-top:1px solid var(--ln);padding:28px 0}
+.q:last-child{padding-bottom:0}
+.q-top{display:flex;gap:16px;align-items:baseline}
+.q-l{font-size:14px;font-weight:600;color:var(--mut);min-width:1.2em}
+h3{margin:0;font-size:21px;line-height:1.3;font-weight:600;letter-spacing:-.012em;flex:1}
+h3 small{font-size:14px;font-weight:400;color:var(--mut);white-space:nowrap;letter-spacing:0}
+.reveal{margin:16px 0 0 calc(1.2em + 16px);min-height:44px;padding:0 20px 0 16px;border-radius:999px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:background .3s,color .3s,transform .35s var(--spring)}
+.reveal:active{transform:scale(.96)}
+.reveal svg{transition:transform .6s var(--ease)}
+.reveal[aria-expanded="true"]{background:transparent;color:var(--acc)}
+.reveal[aria-expanded="true"] svg{transform:rotate(135deg)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .8s var(--ease)}
+.panel.open{grid-template-rows:1fr}
+.panel>.inner{overflow:hidden;min-height:0;visibility:hidden;transition:visibility 0s .8s}
+.panel.open>.inner{visibility:visible;transition-delay:0s}
+.ans{padding:28px 0 4px}
+@media (min-width:640px){.ans{padding-left:calc(1.2em + 16px)}}
+.ans p{margin:0 0 14px}
+.step{opacity:0;transform:translateY(18px);filter:blur(6px)}
+.play .step{animation:stepin .9s var(--ease) both;animation-delay:calc(var(--i,0)*130ms + 150ms)}
+@keyframes stepin{to{opacity:1;transform:none;filter:none}}
+.eq{font-family:var(--math);font-size:19px;margin:0 0 14px;overflow-x:auto;white-space:nowrap;padding:3px 0}
+.m{font-family:var(--math);font-size:1.06em;letter-spacing:0}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.15;margin:0 .15em}
+.fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .25em}
+.fr>span:last-child{padding:0 .25em}
+.result{font-size:clamp(2rem,6.5vw,3.25rem);font-weight:600;line-height:1.1;letter-spacing:-.02em;margin:6px 0 16px !important;color:var(--acc)}
+.result .u{font-size:.5em;font-weight:500;color:var(--mut);letter-spacing:0}
+.result sup,.result sub{font-size:.55em}
+.note{font-size:14px;color:var(--mut)}
+.mini{background:var(--stage);border-radius:18px;padding:18px;margin:0 0 18px;position:relative}
+.mini svg{display:block;height:auto;margin:0 auto}
+
+table.t{border-collapse:collapse;margin:0 0 18px;width:100%;max-width:420px}
+table.t th,table.t td{border-bottom:1px solid var(--ln);padding:12px 8px;text-align:center}
+table.t th{font-weight:600;font-size:14px;color:var(--mut)}
+table.t td{font-size:34px;font-weight:600;color:var(--acc);letter-spacing:-.02em}
+table.t td:first-child,table.t th:first-child{text-align:left;font-size:17px;font-weight:400;color:var(--fg)}
+
+.seg{display:inline-flex;border-radius:999px;padding:3px;gap:2px;margin:0 0 14px;background:rgba(134,134,139,.2)}
+.seg button{min-height:38px;padding:0 16px;border:0;border-radius:999px;background:none;cursor:pointer;font-size:14px;color:var(--fg);transition:background .3s,color .3s}
+.seg button[aria-pressed="true"]{background:var(--acc);color:#fff}
+.readout{text-align:center;margin-top:8px;transition:opacity .4s,transform .6s var(--ease)}
+.readout.off{opacity:.25;transform:scale(.97)}
+.readout .big{font-size:34px;font-weight:600;letter-spacing:-.02em}
+.readout .sm{font-size:14px;color:var(--mut)}
+
+/* svg */
+.s-ink{stroke:var(--fg);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.s-mut{stroke:var(--mut);fill:none;stroke-width:1.2}
+.s-acc{stroke:var(--acc);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.f-ink{fill:var(--fg)} .f-acc{fill:var(--acc)} .f-stage{fill:var(--stage)}
+.tx{font-family:var(--math);font-size:15px;fill:var(--fg);letter-spacing:0}
+.tx.s{font-size:13px;fill:var(--mut);font-family:var(--sans)}
+.tx.a{fill:var(--acc);font-weight:600}
+.tx.big{font-family:var(--sans);font-weight:600;font-size:17px}
+
+.draw{stroke-dasharray:1;stroke-dashoffset:1}
+.play .draw{animation:draw .8s var(--ease) both;animation-delay:calc(var(--i)*var(--gap,90ms) + 150ms)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pop{opacity:0;transform-box:fill-box;transform-origin:center}
+.play .pop{animation:popin .6s var(--spring) both;animation-delay:calc(var(--i)*var(--gap,90ms) + 150ms)}
+@keyframes popin{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+.fd{opacity:0}
+.play .fd{animation:fd .6s ease both;animation-delay:calc(var(--i)*var(--gap,90ms) + 350ms)}
+@keyframes fd{to{opacity:1}}
+#bh{--gap:420ms}
+.el{opacity:0}
+.play .el{animation:elin .7s var(--spring) both;animation-delay:calc(var(--i)*75ms + 250ms)}
+@keyframes elin{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:none}}
+.spin{transform-box:fill-box;transform-origin:center;transition:transform 1.3s var(--spring);transition-delay:calc(var(--i)*160ms + 500ms)}
+.play .spin{transform:rotate(0deg) !important}
+.field{stroke-dasharray:3 9;animation:field 1.2s linear infinite;opacity:0;transition:opacity .8s .3s}
+.play .field{opacity:.55}
+@keyframes field{to{stroke-dashoffset:-24}}
+.swap{transition:opacity .3s}
+.bh-box{fill:none;stroke:var(--mut);stroke-dasharray:4 3;stroke-width:1.2;transition:stroke .4s,fill .4s}
+.bh-box.on{stroke:var(--acc);stroke-dasharray:none;fill:color-mix(in srgb,var(--acc) 18%,transparent)}
+.sum{font-family:var(--math);font-size:19px;border-collapse:collapse;margin:0 0 16px}
+.sum td{padding:4px 28px 4px 0}
+.sum td:last-child{text-align:right;padding-right:0}
+.sum tr.tot td{border-top:1px solid var(--fg);font-weight:600;padding-top:8px}
+#mol{cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+#mol:active{cursor:grabbing}
+
+footer{font-size:14px;color:var(--mut);padding-top:48px;padding-bottom:64px}
+footer p{max-width:60ch;margin:0 auto;text-align:center}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;transition-delay:0s !important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wide">
+    <div class="brand">Kuis 2 KI1101</div>
+    <nav class="nav" aria-label="Lompat ke soal">
+      <button type="button" data-go="soal-1"><span>Soal </span>1</button>
+      <button type="button" data-go="soal-2"><span>Soal </span>2</button>
+      <button type="button" data-go="soal-3"><span>Soal </span>3</button>
+      <button type="button" data-go="soal-4"><span>Soal </span>4</button>
+    </nav>
+    <button type="button" class="all" id="toggleAll" aria-pressed="false">Buka semua</button>
+  </div>
+  <div class="bar" id="bar"></div>
+</header>
+
+<main>
+  <section class="tile t-black hero" id="hero">
+    <div class="hero-text" id="heroText">
+      <p class="tag rv" style="--d:100">KI1101 · Selasa, 10 November 2026</p>
+      <h1><span class="mk" style="--d:150">Kuis 2</span><span class="mk" style="--d:260">Kimia Dasar 1</span></h1>
+      <p class="lead rv" style="--d:520">Empat soal dengan pembahasan langkah demi langkah. Kerjakan dulu, lalu buka jawabannya.</p>
+      <div class="cta rv" style="--d:660">
+        <button type="button" class="btn" data-go="soal-1">Mulai dari Soal 1</button>
+        <button type="button" class="btn ghost" data-go="ringkasan">Lihat daftar soal</button>
+      </div>
+    </div>
+    <div class="hero-spec" id="heroSpec" aria-hidden="true"><svg id="heroSvg" class="glow" viewBox="0 0 1200 300" preserveAspectRatio="none"></svg></div>
+  </section>
+
+  <section class="tile t-parch" id="ringkasan">
+    <div class="wide">
+      <div class="head">
+        <h2 class="mk">4 soal, 12 butir, 40 poin</h2>
+        <p class="stem rv" style="--d:150">Waktu pengerjaan aslinya 50 menit. Pilih soal yang mau kamu cek.</p>
+      </div>
+      <div class="grid">
+        <button type="button" class="card rv" data-go="soal-1" style="--d:0">
+          <svg class="ic1" width="72" height="44" viewBox="0 0 72 44" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="4" y1="40" x2="4" y2="6"/><line x1="9" y1="40" x2="9" y2="6"/><line x1="16" y1="40" x2="16" y2="6"/><line x1="26" y1="40" x2="26" y2="6"/><line x1="42" y1="40" x2="42" y2="6"/><line x1="68" y1="40" x2="68" y2="6"/></svg>
+          <span class="k">Soal 1</span><span class="t">Spektrum emisi spesi mirip hidrogen</span><span class="meta">3 butir · 10 poin</span>
+        </button>
+        <button type="button" class="card rv" data-go="soal-2" style="--d:90">
+          <svg class="ic2" width="96" height="44" viewBox="0 0 96 44" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="28" height="34" rx="4"/><rect x="34" y="6" width="28" height="34" rx="4"/><rect x="66" y="6" width="28" height="34" rx="4"/><g><path d="M16 32V14m-5 6 5-6 5 6M48 32V14m-5 6 5-6 5 6M80 32V14m-5 6 5-6 5 6"/></g></svg>
+          <span class="k">Soal 2</span><span class="t">Elektron terluar atom fosfor</span><span class="meta">3 butir · 10 poin</span>
+        </button>
+        <button type="button" class="card rv" data-go="soal-3" style="--d:180">
+          <svg class="ic3" width="80" height="44" viewBox="0 0 80 44" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 30h12v-8h12v-10h12v4h12V6h12v34h12"/></svg>
+          <span class="k">Soal 3</span><span class="t">Siklus Born–Haber K<sub>2</sub>O</span><span class="meta">2 butir · 7 poin</span>
+        </button>
+        <button type="button" class="card rv" data-go="soal-4" style="--d:270">
+          <svg class="ic4" width="60" height="44" viewBox="0 0 60 44" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><g><path d="M30 4 6 34l28 6 20-10ZM30 4l4 36"/><path d="M6 34l48-4" stroke-dasharray="2 5"/></g></svg>
+          <span class="k">Soal 4</span><span class="t">Struktur Lewis dan bentuk SOCl<sub>2</sub></span><span class="meta">4 butir · 13 poin</span>
+        </button>
+      </div>
+      <div class="data rv" aria-label="Data yang diberikan di lembar soal">
+        <p class="data-l">Data dari lembar soal</p>
+        <span class="chip"><i>R</i><sub>H</sub> = 1,097 × 10<sup>7</sup> m<sup>−1</sup></span>
+        <span class="chip"><i>h</i> = 6,626 × 10<sup>−34</sup> J s</span>
+        <span class="chip"><i>c</i> = 2,998 × 10<sup>8</sup> m s<sup>−1</sup></span>
+        <span class="chip"><i>N</i><sub>A</sub> = 6,022 × 10<sup>23</sup> mol<sup>−1</sup></span>
+        <span class="chip f"><span class="fr"><span>1</span><span><i>λ</i></span></span> = <i>R</i><sub>H</sub><i>Z</i><sup>2</sup> <span style="font-size:1.3em">(</span><span class="fr"><span>1</span><span><i>n</i><sub>1</sub><sup>2</sup></span></span> − <span class="fr"><span>1</span><span><i>n</i><sub>2</sub><sup>2</sup></span></span><span style="font-size:1.3em">)</span></span>
+        <span class="chip f"><i>E</i> = <i>h</i><span class="fr"><span><i>c</i></span><span><i>λ</i></span></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOAL 1 ============ -->
+  <section class="tile t-canvas soal" id="soal-1">
+    <div class="wide">
+      <div class="head">
+        <p class="tag rv">Soal 1 · 10 poin</p>
+        <h2 class="mk">Spektrum emisi spesi mirip hidrogen</h2>
+        <p class="stem rv" style="--d:150">Gambar 1 menunjukkan spektrum emisi suatu spesi berelektron tunggal (mirip hidrogen) dalam fasa gas. Semua garis emisi menuju <b class="m"><i>n</i> = 2</b>. Panjang gelombang garis A = <b>54,02 nm</b>.</p>
+      </div>
+      <figure class="stage plate zoom" data-play>
+        <button type="button" class="replay">Putar ulang</button>
+        <div class="scroll-x"><svg id="q1Spec" viewBox="0 0 900 250" style="width:100%;min-width:560px" role="img" aria-label="Spektrum garis. Dari kiri: batas deret yang rapat, beberapa garis yang makin renggang, garis B, garis A, lalu satu garis terakhir di ujung kanan pada panjang gelombang terbesar."></svg></div>
+        <figcaption>Gambar 1. Garis paling kanan punya panjang gelombang terbesar.</figcaption>
+      </figure>
+    </div>
+    <div class="col">
+      <article class="q">
+        <div class="q-top"><span class="q-l">a</span><h3>Tentukan <span class="m"><i>n</i><sub>1</sub></span> serta <span class="m"><i>n</i><sub>2</sub></span> untuk garis A dan B. <small>4 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p1a">Lihat jawaban</button>
+        <div class="panel" id="p1a" data-hook="bohr"><div class="inner"><div class="ans">
+          <p class="step" style="--i:0">Semua garis berakhir di <span class="m"><i>n</i> = 2</span>, jadi <span class="m"><i>n</i><sub>1</sub> = 2</span> untuk keduanya. Garis dengan panjang gelombang terbesar membawa energi terkecil, yaitu lompatan terpendek 3 → 2. Itu garis paling kanan. Garis A ada tepat di sebelah kirinya, B setelah itu.</p>
+          <table class="t step" style="--i:1">
+            <tr><th></th><th><i class="m">n</i><sub>1</sub></th><th><i class="m">n</i><sub>2</sub></th></tr>
+            <tr><td>Garis A</td><td>2</td><td>4</td></tr>
+            <tr><td>Garis B</td><td>2</td><td>5</td></tr>
+          </table>
+          <div class="mini step" style="--i:2">
+            <div style="text-align:center"><div class="seg" role="group" aria-label="Pilih garis yang diputar">
+              <button type="button" data-line="A" aria-pressed="true">Garis A</button>
+              <button type="button" data-line="B" aria-pressed="false">Garis B</button>
+            </div></div>
+            <svg id="bohr" viewBox="0 0 400 400" style="width:100%;max-width:400px" role="img" aria-label="Model Bohr dengan inti di tengah dan orbit n = 1 sampai n = 5. Elektron mengorbit di n = 4 untuk garis A atau n = 5 untuk garis B, lalu melompat ke n = 2 sambil memancarkan foton."></svg>
+            <div class="readout off" id="bohrOut" aria-live="off"><div class="big" id="bohrBig">4 → 2</div><div class="sm" id="bohrSm">Garis A · λ = 54,02 nm</div></div>
+          </div>
+        </div></div></div>
+      </article>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">b</span><h3>Tentukan identitas spesi yang menghasilkan spektrum tersebut. <small>4 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p1b">Lihat jawaban</button>
+        <div class="panel" id="p1b"><div class="inner"><div class="ans">
+          <p class="step" style="--i:0">Masukkan garis A (<span class="m"><i>n</i><sub>1</sub> = 2, <i>n</i><sub>2</sub> = 4, <i>λ</i> = 54,02 × 10<sup>−9</sup> m</span>) ke persamaan Rydberg, lalu cari <span class="m"><i>Z</i></span>.</p>
+          <p class="eq step" style="--i:1"><span class="fr"><span>1</span><span>54,02 × 10<sup>−9</sup> m</span></span> = (1,097 × 10<sup>7</sup> m<sup>−1</sup>) <i>Z</i><sup>2</sup> <span style="font-size:1.3em">(</span><span class="fr"><span>1</span><span>4</span></span> − <span class="fr"><span>1</span><span>16</span></span><span style="font-size:1.3em">)</span></p>
+          <p class="eq step" style="--i:2">1,851 × 10<sup>7</sup> = (1,097 × 10<sup>7</sup>) <i>Z</i><sup>2</sup> (0,1875)</p>
+          <p class="eq step" style="--i:3"><i>Z</i><sup>2</sup> = <span data-count="9" data-dec="2">9,00</span> &nbsp;→&nbsp; <i>Z</i> = 3</p>
+          <p class="step" style="--i:4">Nomor atom 3 adalah litium. Supaya elektronnya tinggal satu, litium harus kehilangan dua elektron.</p>
+          <p class="step result" style="--i:5">Li<sup>2+</sup></p>
+          <p class="step note" style="--i:6">Cek cepat untuk jawaban a: kalau garis A dianggap 3 → 2, hasilnya <span class="m"><i>Z</i><sup>2</sup> = 12,15</span> dan <span class="m"><i>Z</i></span> tidak bulat. Jadi 4 → 2 memang yang benar.</p>
+        </div></div></div>
+      </article>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">c</span><h3>Hitung energi (dalam Joule) yang diemisikan pada garis A. <small>2 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p1c">Lihat jawaban</button>
+        <div class="panel" id="p1c"><div class="inner"><div class="ans">
+          <p class="eq step" style="--i:0"><i>E</i> = <span class="fr"><span><i>hc</i></span><span><i>λ</i></span></span> = <span class="fr"><span>(6,626 × 10<sup>−34</sup> J s)(2,998 × 10<sup>8</sup> m s<sup>−1</sup>)</span><span>54,02 × 10<sup>−9</sup> m</span></span></p>
+          <p class="step result" style="--i:1"><span data-count="3.677" data-dec="3">3,677</span> × 10<sup>−18</sup> J <span class="u">per foton</span></p>
+        </div></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SOAL 2 ============ -->
+  <section class="tile t-parch soal" id="soal-2">
+    <div class="col">
+      <div class="head">
+        <p class="tag rv">Soal 2 · 10 poin</p>
+        <h2 class="mk">Elektron terluar atom fosfor</h2>
+        <p class="stem rv" style="--d:150">Fosfor adalah unsur yang memiliki kelimpahan yang besar di alam.</p>
+      </div>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">a</span><h3>Tentukan satu set bilangan kuantum <span class="m">(<i>n</i>, <i>ℓ</i>, <i>m</i><sub>ℓ</sub>, <i>m</i><sub>s</sub>)</span> yang mungkin untuk elektron dengan tingkat energi tertinggi pada atom fosfor keadaan dasar. <small>4 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p2a">Lihat jawaban</button>
+        <div class="panel" id="p2a"><div class="inner"><div class="ans">
+          <p class="step" style="--i:0">Fosfor punya 15 elektron: <span class="m">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>3</sup></span>. Elektron berenergi tertinggi menempati subkulit 3p.</p>
+          <div class="mini step scroll-x" style="--i:1"><svg id="orbA" viewBox="0 0 500 110" style="width:100%;max-width:560px;min-width:420px" role="img" aria-label="Diagram orbital fosfor keadaan dasar. 1s, 2s, 2p, dan 3s terisi penuh. Tiga orbital 3p masing-masing berisi satu elektron dengan spin searah."></svg></div>
+          <p class="step result" style="--i:2">(3, 1, +1, +½)</p>
+          <p class="step" style="--i:3"><span class="m"><i>n</i> = 3</span>, <span class="m"><i>ℓ</i> = 1</span>, <span class="m"><i>m</i><sub>ℓ</sub> = +1</span>, <span class="m"><i>m</i><sub>s</sub> = +½</span>.</p>
+          <p class="step note" style="--i:4">Soal hanya meminta satu set. Nilai <span class="m"><i>m</i><sub>ℓ</sub></span> boleh −1, 0, atau +1, dan <span class="m"><i>m</i><sub>s</sub></span> boleh +½ atau −½, asalkan <span class="m"><i>n</i> = 3</span> dan <span class="m"><i>ℓ</i> = 1</span>.</p>
+        </div></div></div>
+      </article>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">b</span><h3>Prediksikan apakah atom fosfor bersifat paramagnetik atau diamagnetik. <small>3 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p2b">Lihat jawaban</button>
+        <div class="panel" id="p2b"><div class="inner"><div class="ans">
+          <p class="step result" style="--i:0">Paramagnetik</p>
+          <div class="mini step" style="--i:1"><svg id="mag" viewBox="0 0 420 150" style="width:100%;max-width:420px" role="img" aria-label="Tiga elektron tak berpasangan yang arah spinnya berputar hingga sejajar dengan medan magnet luar."></svg></div>
+          <p class="step" style="--i:2">Menurut aturan Hund, tiga elektron 3p mengisi tiga orbital yang berbeda dengan spin searah. Ada tiga elektron tak berpasangan, sehingga atom fosfor tertarik oleh medan magnet.</p>
+        </div></div></div>
+      </article>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">c</span><h3>Satu elektron dari orbital 3s pada fosfor dipromosikan ke orbital 3p. Tuliskan konfigurasi elektron keadaan tereksitasinya. <small>3 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p2c">Lihat jawaban</button>
+        <div class="panel" id="p2c" data-hook="excite"><div class="inner"><div class="ans">
+          <div class="mini step" style="--i:0">
+            <div style="text-align:center"><div class="seg" role="group" aria-label="Pilih keadaan atom">
+              <button type="button" data-state="ground" aria-pressed="true">Keadaan dasar</button>
+              <button type="button" data-state="excited" aria-pressed="false">Tereksitasi</button>
+            </div></div>
+            <div class="scroll-x"><svg id="orbC" viewBox="0 0 500 110" style="width:100%;max-width:560px;min-width:420px" role="img" aria-label="Diagram orbital fosfor. Pada keadaan tereksitasi, satu elektron 3s pindah ke orbital 3p sehingga 3s berisi satu elektron dan 3p berisi empat."></svg></div>
+          </div>
+          <p class="step result" style="--i:1">[Ne] 3s<sup>1</sup> 3p<sup>4</sup></p>
+          <p class="step" style="--i:2">Ditulis lengkap: <span class="m">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>1</sup> 3p<sup>4</sup></span>.</p>
+          <p class="step note" style="--i:3">Jumlah elektron tetap 15. Yang berubah hanya tempatnya: 3s berkurang satu, 3p bertambah satu.</p>
+        </div></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SOAL 3 ============ -->
+  <section class="tile t-dark soal" id="soal-3">
+    <div class="wide">
+      <div class="head">
+        <p class="tag rv">Soal 3 · 7 poin</p>
+        <h2 class="mk">Siklus Born–Haber K<sub>2</sub>O</h2>
+        <p class="stem rv" style="--d:150">Gambar di bawah ini menunjukkan siklus Born–Haber untuk pembentukan garam K<sub>2</sub>O dari unsur-unsurnya pada keadaan standar dalam bentuk padatan.</p>
+      </div>
+      <figure class="stage zoom" data-play>
+        <button type="button" class="replay">Putar ulang</button>
+        <div class="scroll-x"><svg id="bh" viewBox="0 0 800 440" style="width:100%;min-width:720px" role="img" aria-label="Siklus Born–Haber K2O digambar sebagai tangga entalpi. Dari 2K(s) + ½O2(g): ΔH1 = +178,0 kJ ke 2K(g) + ½O2(g); ΔH2 = +249,2 kJ ke 2K(g) + O(g); ΔH3 ke kotak nomor 2; ΔH4 = −141,0 kJ ke 2K+(g) + O−(g); ΔH5 = +744,0 kJ ke 2K+(g) + O2−(g); ΔH6 = −2231 kJ ke K2O(s). Entalpi pembentukan K2O(s) = −363,2 kJ."></svg></div>
+        <figcaption>Tinggi tiap anak tangga mengikuti skala entalpinya. Semua nilai dalam kJ.<span class="only-m"> Geser diagram ke samping untuk melihat semuanya.</span></figcaption>
+      </figure>
+    </div>
+    <div class="col">
+      <article class="q">
+        <div class="q-top"><span class="q-l">a</span><h3>Tuliskan spesi-spesi yang berada di kotak no (2) lengkap dengan fasanya. <small>3 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p3a">Lihat jawaban</button>
+        <div class="panel" id="p3a" data-hook="bh2"><div class="inner"><div class="ans">
+          <p class="step" style="--i:0">Kotak (2) terletak di antara <span class="m">2K(g) + O(g)</span> dan <span class="m">2K<sup>+</sup>(g) + O<sup>−</sup>(g)</span>. Langkah sesudahnya (ΔH<sub>4</sub>) adalah oksigen menangkap satu elektron, jadi di kotak (2) kalium sudah terionisasi sedangkan oksigen masih netral.</p>
+          <p class="step result" style="--i:1">2K<sup>+</sup>(g) + O(g)</p>
+          <p class="step note" style="--i:2">Dua elektron yang lepas dari kalium (2e<sup>−</sup>) ikut ada di tahap ini, tetapi diagram di soal tidak menuliskannya.</p>
+        </div></div></div>
+      </article>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">b</span><h3>Tentukan ΔH<sub>3</sub>. <small>4 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p3b">Lihat jawaban</button>
+        <div class="panel" id="p3b" data-hook="bh1"><div class="inner"><div class="ans">
+          <p class="step" style="--i:0">Hukum Hess: lewat jalur mana pun, perubahan entalpi dari unsur ke K<sub>2</sub>O(s) sama besar.</p>
+          <p class="eq step" style="--i:1">Δ<i>H</i>°<sub>f</sub> = Δ<i>H</i><sub>1</sub> + Δ<i>H</i><sub>2</sub> + Δ<i>H</i><sub>3</sub> + Δ<i>H</i><sub>4</sub> + Δ<i>H</i><sub>5</sub> + Δ<i>H</i><sub>6</sub></p>
+          <table class="sum step" style="--i:2">
+            <tr><td>Δ<i>H</i><sub>1</sub></td><td>+178,0</td></tr>
+            <tr><td>Δ<i>H</i><sub>2</sub></td><td>+249,2</td></tr>
+            <tr><td>Δ<i>H</i><sub>4</sub></td><td>−141,0</td></tr>
+            <tr><td>Δ<i>H</i><sub>5</sub></td><td>+744,0</td></tr>
+            <tr><td>Δ<i>H</i><sub>6</sub></td><td>−2231,0</td></tr>
+            <tr class="tot"><td>Jumlah lima langkah</td><td>−<span data-count="1200.8" data-dec="1">1200,8</span> kJ</td></tr>
+          </table>
+          <p class="eq step" style="--i:3">Δ<i>H</i><sub>3</sub> = −363,2 − (−1200,8)</p>
+          <p class="step result" style="--i:4">+<span data-count="837.6" data-dec="1">837,6</span> kJ</p>
+          <p class="step note" style="--i:5">Nilai ini untuk mengionkan 2 mol K(g), jadi energi ionisasi pertama kalium sekitar 418,8 kJ/mol.</p>
+        </div></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SOAL 4 ============ -->
+  <section class="tile t-canvas soal" id="soal-4">
+    <div class="col">
+      <div class="head">
+        <p class="tag rv">Soal 4 · 13 poin</p>
+        <h2 class="mk">Struktur Lewis dan bentuk SOCl<sub>2</sub></h2>
+        <p class="stem rv" style="--d:150">Tionil klorida (SOCl<sub>2</sub>) adalah senyawa anorganik yang sangat berguna dalam kimia organik, terutama sebagai reagen klorinasi. SOCl<sub>2</sub> juga menjadi komponen penting pada baterai litium–tionil klorida (Li–SOCl<sub>2</sub>).</p>
+      </div>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">a</span><h3>Gambarkan struktur Lewis paling stabil untuk senyawa SOCl<sub>2</sub>. <small>4 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p4a">Lihat jawaban</button>
+        <div class="panel" id="p4a"><div class="inner"><div class="ans">
+          <p class="step" style="--i:0">Elektron valensi: S (6) + O (6) + 2 Cl (2 × 7) = <span class="m"><span data-count="26" data-dec="0">26</span> elektron</span>. Sulfur paling kurang elektronegatif, jadi ia menjadi atom pusat.</p>
+          <div class="mini step" style="--i:1"><svg id="lewis" viewBox="0 0 420 260" style="width:100%;max-width:400px" role="img" aria-label="Struktur Lewis SOCl2. Sulfur di tengah berikatan rangkap dua dengan oksigen dan berikatan tunggal dengan dua klorin. Sulfur punya satu pasang elektron bebas, oksigen dua pasang, tiap klorin tiga pasang."></svg></div>
+          <p class="step" style="--i:2">Ikatan rangkap S=O, dua ikatan tunggal S–Cl, dan satu pasangan elektron bebas di S. Dengan susunan ini muatan formal semua atom nol, sehingga inilah struktur yang paling stabil.</p>
+          <p class="step note" style="--i:3">Versi dengan ikatan tunggal S–O memang memenuhi oktet, tetapi memberi S muatan +1 dan O muatan −1. Sulfur ada di periode 3, jadi ia boleh menampung lebih dari delapan elektron.</p>
+        </div></div></div>
+      </article>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">b</span><h3>Hitung muatan formal masing-masing pada atom S dan O. <small>3 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p4b">Lihat jawaban</button>
+        <div class="panel" id="p4b"><div class="inner"><div class="ans">
+          <p class="eq step" style="--i:0">MF = e<sup>−</sup> valensi − e<sup>−</sup> bebas − ½ (e<sup>−</sup> ikatan)</p>
+          <p class="eq step" style="--i:1">S: 6 − 2 − ½(8) = 0</p>
+          <p class="eq step" style="--i:2">O: 6 − 4 − ½(4) = 0</p>
+          <p class="step result" style="--i:3">S = 0 <span class="u">dan</span> O = 0</p>
+        </div></div></div>
+      </article>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">c</span><h3>Tuliskan jumlah domain elektron di sekitar atom pusat pada senyawa SOCl<sub>2</sub>. <small>3 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p4c">Lihat jawaban</button>
+        <div class="panel" id="p4c"><div class="inner"><div class="ans">
+          <p class="step result" style="--i:0"><span data-count="4" data-dec="0">4</span> <span class="u">domain elektron</span></p>
+          <p class="step" style="--i:1">Tiga domain ikatan (S=O, S–Cl, S–Cl) ditambah satu pasangan elektron bebas. Ikatan rangkap tetap dihitung satu domain.</p>
+        </div></div></div>
+      </article>
+
+      <article class="q">
+        <div class="q-top"><span class="q-l">d</span><h3>Tuliskan bentuk molekul dari senyawa SOCl<sub>2</sub>. <small>3 poin</small></h3></div>
+        <button class="reveal" type="button" aria-expanded="false" aria-controls="p4d">Lihat jawaban</button>
+        <div class="panel" id="p4d" data-hook="mol"><div class="inner"><div class="ans">
+          <p class="step result" style="--i:0">Piramida segitiga</p>
+          <p class="step" style="--i:1">Nama lainnya trigonal piramidal, tipe AX<sub>3</sub>E.</p>
+          <div class="mini step" style="--i:2"><svg id="mol" viewBox="0 0 400 320" style="width:100%;max-width:400px" role="img" aria-label="Model tiga dimensi SOCl2 yang berputar. Sulfur di puncak piramida dengan pasangan elektron bebas mengarah ke atas, sedangkan oksigen dan dua klorin membentuk alas segitiga."></svg><p class="cap">Geser ke kiri atau kanan untuk memutar model.</p></div>
+          <p class="step" style="--i:3">Empat domain tersusun tetrahedral. Satu sudutnya diisi pasangan elektron bebas yang tidak ikut menentukan bentuk, sehingga tiga atom yang terikat membentuk alas piramida dengan S di puncaknya. Sudut ikatannya sedikit lebih kecil dari 109,5°.</p>
+        </div></div></div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="tile t-parch">
+    <p>Soal disalin dari foto lembar Kuis 2 KI1101. Urutan garis pada Gambar 1 dibaca dari foto itu dan cocok dengan hitungan <span class="m"><i>Z</i> = 3</span>. Kalau kunci dari dosenmu berbeda, ikuti kunci dosen.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg";
+var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function el(tag,attrs,text){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;return e}
+function fmt(v,d){return v.toFixed(d).replace(".",",")}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function ease3(p){return 1-Math.pow(1-p,3)}
+function tween(ms,fn,done){
+  if(reduce){fn(1);if(done)done();return}
+  var t0=null;
+  function f(t){if(t0===null)t0=t;var p=Math.min(1,(t-t0)/ms);fn(p);if(p<1)requestAnimationFrame(f);else if(done)done()}
+  requestAnimationFrame(f);
+}
+function setI(n,i){n.style.setProperty("--i",i);return n}
+
+/* ---------- judul bertopeng ---------- */
+$$(".mk").forEach(function(m){var s=document.createElement("span");s.className="mk-i";while(m.firstChild)s.appendChild(m.firstChild);m.appendChild(s);if(m.style.getPropertyValue("--d"))s.style.setProperty("--d",m.style.getPropertyValue("--d"))});
+
+/* ---------- spektrum ---------- */
+var R=1.097e7,Z=3;
+function lam(n){return 1e9/(R*Z*Z*(1/4-1/(n*n)))}
+var LIM=1e9/(R*Z*Z/4);
+function drawSpec(svg,o){
+  var a=38.5,b=76;
+  function X(l){return o.x0+(l-a)/(b-a)*(o.x1-o.x0)}
+  var xl=X(LIM),xb=X(lam(14));
+  var band=el("rect",{x:xl,y:o.top,width:xb-xl,height:o.base-o.top,"class":"sb"});band.style.setProperty("--d",0);svg.appendChild(band);
+  for(var n=13;n>=3;n--){var x=X(lam(n));var ln=el("line",{x1:x,y1:o.base,x2:x,y2:o.top,"class":"sl"});ln.style.setProperty("--d",(14-n)*85);svg.appendChild(ln)}
+  if(o.labels){
+    var g=el("g",{});
+    g.appendChild(el("line",{x1:o.x0,y1:o.base+1,x2:o.x1,y2:o.base+1,stroke:"#f5f5f7","stroke-width":1,opacity:.35}));
+    g.appendChild(setI(el("text",{x:xl,y:o.top-16,"class":"tx s fd"},"Batas deret"),9));
+    g.appendChild(setI(el("text",{x:X(lam(5)),y:o.top-14,"text-anchor":"middle","class":"tx big fd"},"B"),10));
+    g.appendChild(setI(el("text",{x:X(lam(4)),y:o.top-14,"text-anchor":"middle","class":"tx big fd"},"A"),11));
+    g.appendChild(setI(el("text",{x:o.x1,y:o.base+28,"text-anchor":"end","class":"tx s fd"},"Panjang gelombang bertambah, λ →"),12));
+    svg.appendChild(g);
+  }
+}
+drawSpec($("#heroSvg"),{x0:40,x1:1160,top:20,base:300,labels:false});
+(function(){var s=$("#q1Spec");var g=el("g",{"class":"glow"});s.appendChild(g);drawSpec(g,{x0:50,x1:850,top:60,base:200,labels:false});
+  var a=38.5,b=76;function X(l){return 50+(l-a)/(b-a)*800}
+  s.appendChild(el("line",{x1:50,y1:201,x2:850,y2:201,stroke:"#f5f5f7","stroke-width":1,opacity:.35}));
+  s.appendChild(setI(el("text",{x:X(LIM),y:44,"class":"tx s fd"},"Batas deret"),9));
+  s.appendChild(setI(el("text",{x:X(lam(5)),y:46,"text-anchor":"middle","class":"tx big fd"},"B"),10));
+  s.appendChild(setI(el("text",{x:X(lam(4)),y:46,"text-anchor":"middle","class":"tx big fd"},"A"),11));
+  s.appendChild(setI(el("text",{x:850,y:230,"text-anchor":"end","class":"tx s fd"},"Panjang gelombang bertambah, λ →"),12));
+})();
+
+/* ---------- model Bohr ---------- */
+var RAD={1:26,2:58,3:94,4:130,5:166},BC=200;
+var bohr={from:4,phase:"high",t:0,ang:-1.2,r:130,on:false,vis:true,raf:0,last:0,pa:0,pt:-1};
+(function(){
+  var s=$("#bohr");
+  [1,2,3,4,5].forEach(function(n){
+    s.appendChild(el("circle",{cx:BC,cy:BC,r:RAD[n],"class":"s-mut",id:"orb"+n,"stroke-dasharray":n===1?"2 4":"none"}));
+    if(n>1){var a=-2.2;s.appendChild(el("rect",{x:BC+RAD[n]*Math.cos(a)-21,y:BC+RAD[n]*Math.sin(a)-10,width:42,height:20,"class":"f-stage"}));
+      s.appendChild(el("text",{x:BC+RAD[n]*Math.cos(a),y:BC+RAD[n]*Math.sin(a)+5,"text-anchor":"middle","class":"tx s"},"n = "+n))}
+  });
+  s.appendChild(el("circle",{cx:BC,cy:BC,r:13,"class":"f-ink"}));
+  s.appendChild(el("text",{x:BC,y:BC+4,"text-anchor":"middle","class":"tx s",style:"fill:var(--stage);font-weight:600;font-size:11px"},"3+"));
+  var d="M0 0";for(var i=0;i<4;i++)d+=" q5 -9 10 0 q5 9 10 0";
+  var ph=el("g",{id:"photon",opacity:0});ph.appendChild(el("path",{d:d,"class":"s-acc"}));s.appendChild(ph);
+  var e=el("circle",{id:"bE",r:8,"class":"f-acc",style:"filter:drop-shadow(0 0 6px var(--acc))"});s.appendChild(e);
+})();
+function bohrDraw(){
+  var e=$("#bE");e.setAttribute("cx",BC+bohr.r*Math.cos(bohr.ang));e.setAttribute("cy",BC+bohr.r*Math.sin(bohr.ang));
+  var act=bohr.phase==="high"?bohr.from:(bohr.phase==="low"?2:0);
+  [1,2,3,4,5].forEach(function(n){var o=$("#orb"+n);o.style.stroke=n===act?"var(--acc)":"";o.style.strokeWidth=n===act?2:""});
+  var ph=$("#photon");
+  if(bohr.pt>=0&&bohr.pt<=1){var d=RAD[2]+20+bohr.pt*150;ph.setAttribute("opacity",Math.sin(Math.PI*bohr.pt));ph.setAttribute("transform","translate("+BC+","+BC+") rotate("+(bohr.pa*180/Math.PI)+") translate("+d+",0)")}
+  else ph.setAttribute("opacity",0);
+}
+function bohrStep(dt){
+  var b=bohr,hi=RAD[b.from],lo=RAD[2];b.t+=dt;
+  var n=b.phase==="high"?b.from:(b.phase==="low"?2:3);
+  b.ang+=(4.4/n)*dt;
+  if(b.pt>=0){b.pt+=dt/1.1;if(b.pt>1)b.pt=-1}
+  if(b.phase==="high"&&b.t>1.5){b.phase="drop";b.t=0;b.pa=b.ang;b.pt=0;$("#bohrOut").classList.remove("off")}
+  else if(b.phase==="drop"){var p=Math.min(1,b.t/.45);b.r=hi+(lo-hi)*ease3(p);if(p>=1){b.phase="low";b.t=0}}
+  else if(b.phase==="low"&&b.t>2.6){b.phase="up";b.t=0;$("#bohrOut").classList.add("off")}
+  else if(b.phase==="up"){var q=Math.min(1,b.t/.7);b.r=lo+(hi-lo)*ease3(q);$("#bE").style.opacity=.35+.65*q;if(q>=1){b.phase="high";b.t=0}}
+}
+function bohrLoop(t){
+  if(!bohr.on||!bohr.vis){bohr.raf=0;return}
+  var dt=Math.min(.05,(t-bohr.last)/1000||0);bohr.last=t;bohrStep(dt);bohrDraw();bohr.raf=requestAnimationFrame(bohrLoop);
+}
+function bohrSet(which){
+  bohr.from=which==="A"?4:5;bohr.phase="high";bohr.t=.4;bohr.r=RAD[bohr.from];bohr.pt=-1;$("#bE").style.opacity=1;
+  $$("[data-line]").forEach(function(o){o.setAttribute("aria-pressed",o.getAttribute("data-line")===which?"true":"false")});
+  $("#bohrBig").textContent=bohr.from+" → 2";$("#bohrSm").textContent="Garis "+which+" · λ = "+fmt(lam(bohr.from),2)+" nm";
+  $("#bohrOut").classList.add("off");
+  if(reduce){bohr.phase="low";bohr.r=RAD[2];bohr.ang=0;$("#bohrOut").classList.remove("off")}
+  bohrDraw();bohrKick();
+}
+function bohrKick(){if(!reduce&&bohr.on&&bohr.vis&&!bohr.raf){bohr.last=performance.now();bohr.raf=requestAnimationFrame(bohrLoop)}}
+$$("[data-line]").forEach(function(b){b.addEventListener("click",function(){bohrSet(b.getAttribute("data-line"))})});
+
+/* ---------- diagram orbital ---------- */
+var BOX=[["1s",[10]],["2s",[66]],["2p",[122,164,206]],["3s",[268]],["3p",[324,366,408]]];
+function arrow(svg,cx,up,acc,i){
+  var x=cx+(up?-7:7),g=el("g",{"class":"el"});g.style.setProperty("--i",i);
+  var y1=up?62:30,y2=up?30:62,h=up?8:-8;
+  g.appendChild(el("path",{d:"M"+x+" "+y1+" L"+x+" "+y2+" M"+(x-5)+" "+(y2+h)+" L"+x+" "+y2+" L"+(x+5)+" "+(y2+h),"class":acc?"s-acc":"s-ink","stroke-width":2.2}));
+  svg.appendChild(g);return g;
+}
+function drawOrb(svg,mode){
+  var i=0;
+  BOX.forEach(function(sub){
+    var name=sub[0],xs=sub[1];
+    xs.forEach(function(x){svg.appendChild(el("rect",{x:x,y:22,width:42,height:48,rx:6,"class":"s-ink"}))});
+    svg.appendChild(el("text",{x:(xs[0]+xs[xs.length-1]+42)/2,y:96,"text-anchor":"middle","class":"tx"},name));
+    xs.forEach(function(x){arrow(svg,x+21,true,name==="3p"&&mode==="a",i++)});
+    if(name!=="3p")xs.forEach(function(x){
+      if(name==="3s"&&mode==="c"){var w=el("g",{id:"mover"});svg.appendChild(w);w.appendChild(arrow(w,x+21,false,true,i++))}
+      else arrow(svg,x+21,false,false,i++);
+    });
+  });
+}
+drawOrb($("#orbA"),"a");drawOrb($("#orbC"),"c");
+var exc={x:0,run:0};
+function setState(s){
+  $$("[data-state]").forEach(function(o){o.setAttribute("aria-pressed",o.getAttribute("data-state")===s?"true":"false")});
+  var to=s==="excited"?56:0,from=exc.x,run=++exc.run,m=$("#mover");
+  if(from===to){m.setAttribute("transform","translate("+to+",0)");return}
+  tween(900,function(p){if(run!==exc.run)return;var e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;exc.x=from+(to-from)*e;m.setAttribute("transform","translate("+exc.x+","+(-Math.sin(Math.PI*e)*46)+")")});
+}
+$$("[data-state]").forEach(function(b){b.addEventListener("click",function(){setState(b.getAttribute("data-state"))})});
+
+/* ---------- spin sejajar medan ---------- */
+(function(){
+  var s=$("#mag"),rot=[-125,48,160];
+  for(var k=0;k<7;k++)s.appendChild(el("line",{x1:70+k*46,y1:140,x2:70+k*46,y2:10,"class":"s-mut field"}));
+  rot.forEach(function(r,i){
+    var cx=130+i*80,g=el("g",{"class":"spin"});g.style.setProperty("--i",i);g.style.transform="rotate("+r+"deg)";
+    g.appendChild(el("circle",{cx:cx,cy:75,r:26,"class":"f-stage s-ink"}));
+    g.appendChild(el("path",{d:"M"+cx+" 92 L"+cx+" 58 M"+(cx-7)+" 67 L"+cx+" 58 L"+(cx+7)+" 67","class":"s-acc"}));
+    s.appendChild(g);
+  });
+  s.appendChild(el("text",{x:392,y:80,"text-anchor":"middle","class":"tx a",style:"font-style:italic;font-size:20px"},"B"));
+  s.appendChild(el("path",{d:"M392 56 L392 22 M386 30 L392 22 L398 30","class":"s-acc","stroke-width":1.8}));
+})();
+
+/* ---------- Born–Haber ---------- */
+(function(){
+  var svg=$("#bh");
+  var L=[{H:0,t:"2K(s) + ½O₂(g)"},{H:178,t:"2K(g) + ½O₂(g)"},{H:427.2,t:"2K(g) + O(g)"},{H:1264.8,key:1},{H:1123.8,t:"2K⁺(g) + O⁻(g)"},{H:1867.8,t:"2K⁺(g) + O²⁻(g)"},{H:-363.2,t:"K₂O(s)"}];
+  var S=["ΔH₁ = +178,0","ΔH₂ = +249,2","ΔH₃ = ","ΔH₄ = −141,0","ΔH₅ = +744,0","ΔH₆ = −2231"];
+  function Y(h){return 52+(1867.8-h)/2231*340}
+  function Xc(i){return 18+i*110}
+  function add(n,i){n.style.setProperty("--i",i);svg.appendChild(n);return n}
+  function arrowV(x,y1,y2,i,id){
+    var dir=y2<y1?-1:1,tip=y2-dir*3;
+    var ln=add(el("line",{x1:x,y1:y1,x2:x,y2:tip-dir*4,"class":"s-ink draw",pathLength:1,"stroke-width":1.8}),i);
+    var hd=add(el("path",{d:"M"+(x-5)+" "+(tip-dir*9)+" L"+x+" "+tip+" L"+(x+5)+" "+(tip-dir*9),"class":"s-ink fd","stroke-width":1.8}),i+.6);
+    if(id){ln.id=id+"L";hd.id=id+"H"}
+  }
+  add(el("line",{x1:Xc(0),y1:Y(-363.2),x2:Xc(6),y2:Y(-363.2),"class":"s-mut fd","stroke-dasharray":"3 5"}),6);
+  L.forEach(function(l,i){
+    var y=Y(l.H),x=Xc(i),x2=i<6?Xc(i+1)+22:x+104,st=i===0?0:i-.3;
+    add(el("line",{x1:x,y1:y,x2:x2,y2:y,"class":"s-ink draw",pathLength:1,"stroke-width":2.4}),st);
+    var up=i<6?L[i+1].H>l.H:false,ty=i===6?y-10:(up?y+20:y-10);
+    if(l.key){
+      add(el("rect",{id:"bhBox",x:x+20,y:y-33,width:128,height:26,rx:6,"class":"bh-box fd"}),st);
+      add(el("text",{id:"bhT2",x:x+30,y:y-14,"class":"tx"},"(2)"),st).classList.add("fd");
+    }else add(el("text",{x:i===6?x+30:x+24,y:ty,"class":"tx fd"},l.t),st);
+    if(i<6){
+      var ax=Xc(i+1)+10,y2=Y(L[i+1].H),my=(y+y2)/2+5;if(i===4)my-=28;
+      arrowV(ax,y,y2,i+.2,i===2?"bh3":null);
+      if(i===2){
+        add(el("rect",{id:"bhBox1",x:ax-66,y:my-18,width:60,height:26,rx:6,"class":"bh-box fd"}),i+.5);
+        add(el("text",{x:ax-70,y:my,"text-anchor":"end","class":"tx fd"},S[i]),i+.5);
+        add(el("text",{id:"bhT1",x:ax-36,y:my,"text-anchor":"middle","class":"tx fd"},"(1)"),i+.5);
+      }else add(el("text",{x:ax-8,y:my,"text-anchor":"end","class":"tx fd"},S[i]),i+.5);
+    }
+  });
+  var y0=Y(0),yf=Y(-363.2);
+  arrowV(Xc(0)+8,y0,yf,6.3);
+  add(el("text",{x:Xc(0)+18,y:yf-10,"class":"tx fd"},"ΔH°f = −363,2"),6.6);
+})();
+function swap(node,box,txt,on){
+  node.style.transition="opacity .3s";node.style.animation="none";node.style.opacity=0;
+  setTimeout(function(){node.textContent=txt;node.classList.toggle("a",on);box.classList.toggle("on",on);node.style.opacity=1},reduce?0:280);
+}
+function bh3(on){["bh3L","bh3H"].forEach(function(i){var n=document.getElementById(i);n.style.stroke=on?"var(--acc)":"";n.style.strokeWidth=on?3:""})}
+
+/* ---------- Lewis ---------- */
+(function(){
+  var s=$("#lewis"),i=0;
+  function atom(x,y,t){var g=el("text",{x:x,y:y+9,"text-anchor":"middle","class":"tx pop"},t);g.style.fontSize="27px";g.style.setProperty("--i",i++);s.appendChild(g)}
+  function bond(x1,y1,x2,y2){var b=el("line",{x1:x1,y1:y1,x2:x2,y2:y2,"class":"s-ink draw",pathLength:1,"stroke-width":2.4});b.style.setProperty("--i",i);s.appendChild(b)}
+  function pair(a,b,c,d,acc){[[a,b],[c,d]].forEach(function(p){var o=el("circle",{cx:p[0],cy:p[1],r:3.6,"class":(acc?"f-acc":"f-ink")+" pop"});o.style.setProperty("--i",i);s.appendChild(o)});i++}
+  atom(210,130,"S");atom(210,44,"O");atom(104,196,"Cl");atom(316,196,"Cl");
+  bond(204,112,204,64);bond(216,112,216,64);i++;
+  bond(192,142,128,182);i++;bond(228,142,292,182);i++;
+  pair(184,37,184,51);pair(236,37,236,51);
+  pair(74,189,74,203);pair(96,170,110,166);pair(97,222,111,222);
+  pair(346,189,346,203);pair(310,166,324,170);pair(309,222,323,222);
+  pair(203,160,217,160,true);
+})();
+
+/* ---------- model 3D SOCl2 ---------- */
+var mol={yaw:.6,pitch:.5,on:false,vis:true,raf:0,last:0,drag:false,px:0,py:0};
+(function(){
+  var s=$("#mol"),SC=118,CX=200,CY=150;
+  var th=116*Math.PI/180,ry=Math.cos(th),rr=Math.sin(th);
+  var P=[{t:"O",l:.86,a:0,dbl:true},{t:"Cl",l:1.08,a:2*Math.PI/3},{t:"Cl",l:1.08,a:4*Math.PI/3}];
+  P.forEach(function(p){p.v=[rr*Math.cos(p.a)*p.l,ry*p.l,rr*Math.sin(p.a)*p.l]});
+  var base=el("path",{"class":"s-mut","stroke-dasharray":"3 6"});s.appendChild(base);
+  var items=[];
+  function mk(o){s.appendChild(o.g);items.push(o);return o}
+  P.forEach(function(p){
+    var bg=el("g",{});p.b1=el("line",{"class":"s-ink","stroke-width":3});bg.appendChild(p.b1);
+    if(p.dbl){p.b2=el("line",{"class":"s-ink","stroke-width":3});bg.appendChild(p.b2)}
+    p.bond=mk({g:bg,z:0});
+    var ag=el("g",{});p.c=el("circle",{"class":"f-stage s-ink","stroke-width":2});p.tx=el("text",{"text-anchor":"middle","class":"tx big"},p.t);ag.appendChild(p.c);ag.appendChild(p.tx);
+    p.atom=mk({g:ag,z:0});
+  });
+  var sg=el("g",{}),sc=el("circle",{"class":"f-ink"}),st=el("text",{"text-anchor":"middle","class":"tx big",style:"fill:var(--stage)"},"S");sg.appendChild(sc);sg.appendChild(st);
+  var S0=mk({g:sg,z:0});
+  var lg=el("g",{}),lobe=el("ellipse",{"class":"f-acc",opacity:.22}),ld1=el("circle",{r:3.6,"class":"f-acc"}),ld2=el("circle",{r:3.6,"class":"f-acc"});lg.appendChild(lobe);lg.appendChild(ld1);lg.appendChild(ld2);
+  var LP=mk({g:lg,z:0});
+  function proj(v){
+    var cy=Math.cos(mol.yaw),sy=Math.sin(mol.yaw),cp=Math.cos(mol.pitch),sp=Math.sin(mol.pitch);
+    var x=v[0]*cy+v[2]*sy,z=-v[0]*sy+v[2]*cy,y=v[1]*cp-z*sp,z2=v[1]*sp+z*cp,k=1+z2*.14;
+    return {x:CX+x*SC*k,y:CY-y*SC*k,z:z2,k:k};
+  }
+  mol.render=function(){
+    var o=proj([0,0,0]),pts=[];
+    sc.setAttribute("cx",o.x);sc.setAttribute("cy",o.y);sc.setAttribute("r",22);st.setAttribute("x",o.x);st.setAttribute("y",o.y+6);S0.z=0;
+    P.forEach(function(p){
+      var q=proj(p.v);pts.push(q);
+      var dx=q.x-o.x,dy=q.y-o.y,len=Math.sqrt(dx*dx+dy*dy)||1,nx=-dy/len*4.5,ny=dx/len*4.5;
+      if(p.dbl){[[p.b1,1],[p.b2,-1]].forEach(function(a){a[0].setAttribute("x1",o.x+nx*a[1]);a[0].setAttribute("y1",o.y+ny*a[1]);a[0].setAttribute("x2",q.x+nx*a[1]);a[0].setAttribute("y2",q.y+ny*a[1])})}
+      else{p.b1.setAttribute("x1",o.x);p.b1.setAttribute("y1",o.y);p.b1.setAttribute("x2",q.x);p.b1.setAttribute("y2",q.y)}
+      p.bond.z=q.z/2;p.atom.z=q.z;
+      var r=(p.t==="Cl"?24:20)*q.k;p.c.setAttribute("cx",q.x);p.c.setAttribute("cy",q.y);p.c.setAttribute("r",r);
+      p.tx.setAttribute("x",q.x);p.tx.setAttribute("y",q.y+6);
+    });
+    base.setAttribute("d","M"+pts[0].x+" "+pts[0].y+" L"+pts[1].x+" "+pts[1].y+" L"+pts[2].x+" "+pts[2].y+" Z");
+    var l=proj([0,.62,0]),ang=Math.atan2(l.y-o.y,l.x-o.x)*180/Math.PI,dist=Math.sqrt(Math.pow(l.x-o.x,2)+Math.pow(l.y-o.y,2));
+    lobe.setAttribute("cx",l.x);lobe.setAttribute("cy",l.y);lobe.setAttribute("rx",Math.max(14,dist*.55));lobe.setAttribute("ry",17);lobe.setAttribute("transform","rotate("+ang+" "+l.x+" "+l.y+")");
+    var px=-(l.y-o.y)/(dist||1)*7,py=(l.x-o.x)/(dist||1)*7;
+    ld1.setAttribute("cx",l.x+px);ld1.setAttribute("cy",l.y+py);ld2.setAttribute("cx",l.x-px);ld2.setAttribute("cy",l.y-py);LP.z=l.z;
+    items.slice().sort(function(a,b){return a.z-b.z}).forEach(function(it){s.appendChild(it.g)});
+  };
+  mol.render();
+  s.addEventListener("pointerdown",function(e){mol.drag=true;mol.px=e.clientX;mol.py=e.clientY;try{s.setPointerCapture(e.pointerId)}catch(_){}});
+  s.addEventListener("pointermove",function(e){if(!mol.drag)return;mol.yaw+=(e.clientX-mol.px)*.012;mol.pitch=clamp(mol.pitch+(e.clientY-mol.py)*.008,-.5,1.1);mol.px=e.clientX;mol.py=e.clientY;mol.render()});
+  ["pointerup","pointercancel","pointerleave"].forEach(function(n){s.addEventListener(n,function(){mol.drag=false})});
+})();
+function molLoop(t){
+  if(!mol.on||!mol.vis){mol.raf=0;return}
+  var dt=Math.min(.05,(t-mol.last)/1000||0);mol.last=t;if(!mol.drag){mol.yaw+=dt*.55;mol.render()}
+  mol.raf=requestAnimationFrame(molLoop);
+}
+function molKick(){if(!reduce&&mol.on&&mol.vis&&!mol.raf){mol.last=performance.now();mol.raf=requestAnimationFrame(molLoop)}}
+
+/* ---------- hitung naik ---------- */
+function countUp(n,delay){
+  var to=parseFloat(n.getAttribute("data-count")),d=parseInt(n.getAttribute("data-dec"),10)||0;
+  if(reduce){n.textContent=fmt(to,d);return}
+  n.textContent=fmt(0,d);
+  setTimeout(function(){tween(1100,function(p){n.textContent=fmt(to*ease3(p),d)})},delay);
+}
+
+/* ---------- buka / tutup jawaban ---------- */
+var hooks={
+  bohr:function(open){bohr.on=open;if(open)bohrSet("A")},
+  excite:function(open){if(open){setState("ground");setTimeout(function(){if($("#p2c").classList.contains("open"))setState("excited")},reduce?0:1900)}else setState("ground")},
+  bh2:function(open){swap($("#bhT2"),$("#bhBox"),open?"2K⁺(g) + O(g)":"(2)",open)},
+  bh1:function(open){swap($("#bhT1"),$("#bhBox1"),open?"+837,6":"(1)",open);bh3(open)},
+  mol:function(open){mol.on=open;if(open)molKick()}
+};
+function setPanel(btn,open){
+  var p=document.getElementById(btn.getAttribute("aria-controls"));
+  if(p.classList.contains("open")===open)return;
+  btn.setAttribute("aria-expanded",open?"true":"false");
+  btn.lastChild.textContent=open?"Tutup jawaban":"Lihat jawaban";
+  p.classList.toggle("open",open);
+  if(open){
+    requestAnimationFrame(function(){requestAnimationFrame(function(){p.classList.add("play")})});
+    $$("[data-count]",p).forEach(function(n){var st=n.closest(".step"),i=st?parseFloat(st.style.getPropertyValue("--i"))||0:0;countUp(n,i*130+250)});
+  }else p.classList.remove("play");
+  var h=p.getAttribute("data-hook");if(h&&hooks[h])hooks[h](open);
+  syncAll();
+}
+var btns=$$(".reveal");
+btns.forEach(function(b){
+  var ic=el("svg",{width:14,height:14,viewBox:"0 0 14 14","aria-hidden":"true"});
+  ic.appendChild(el("path",{d:"M7 1.5v11M1.5 7h11",fill:"none",stroke:"currentColor","stroke-width":2,"stroke-linecap":"round"}));
+  var label=document.createTextNode(b.textContent);b.textContent="";b.appendChild(ic);b.appendChild(label);
+  b.addEventListener("click",function(){setPanel(b,b.getAttribute("aria-expanded")!=="true")});
+});
+var allBtn=$("#toggleAll");
+function syncAll(){
+  var allOpen=btns.every(function(b){return b.getAttribute("aria-expanded")==="true"});
+  allBtn.textContent=allOpen?"Tutup semua":"Buka semua";allBtn.setAttribute("aria-pressed",allOpen?"true":"false");
+}
+allBtn.addEventListener("click",function(){var open=allBtn.getAttribute("aria-pressed")!=="true";btns.forEach(function(b){setPanel(b,open)})});
+
+/* ---------- gulir halus ---------- */
+var sc={cur:window.scrollY,target:window.scrollY,run:false,k:.12};
+function maxY(){return document.documentElement.scrollHeight-window.innerHeight}
+function scLoop(){
+  if(!sc.run)return;
+  var d=sc.target-sc.cur;
+  if(Math.abs(d)<.6){sc.cur=sc.target;window.scrollTo(0,sc.cur);sc.run=false;return}
+  sc.cur+=d*sc.k;window.scrollTo(0,sc.cur);requestAnimationFrame(scLoop);
+}
+function scGo(y,k){sc.cur=window.scrollY;sc.target=clamp(y,0,maxY());sc.k=k;if(!sc.run){sc.run=true;requestAnimationFrame(scLoop)}}
+if(!reduce){
+  window.addEventListener("wheel",function(e){
+    if(e.ctrlKey||e.metaKey||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
+    var mouse=e.deltaMode===1||Math.abs(e.deltaY)>=50;if(!mouse){sc.run=false;return}
+    e.preventDefault();
+    var dy=e.deltaMode===1?e.deltaY*32:e.deltaY;
+    if(!sc.run){sc.cur=window.scrollY;sc.target=sc.cur}
+    sc.target=clamp(sc.target+dy,0,maxY());sc.k=.11;
+    if(!sc.run){sc.run=true;requestAnimationFrame(scLoop)}
+  },{passive:false});
+  ["touchstart","pointerdown","keydown"].forEach(function(n){window.addEventListener(n,function(){sc.run=false},{passive:true})});
+}
+$$("[data-go]").forEach(function(b){b.addEventListener("click",function(){
+  var t=document.getElementById(b.getAttribute("data-go"));
+  var y=t.getBoundingClientRect().top+window.scrollY-48;
+  if(reduce)window.scrollTo(0,y);else setTimeout(function(){scGo(y,.075)},0);
+})});
+
+/* ---------- efek yang mengikuti gulir ---------- */
+var bar=$("#bar"),heroText=$("#heroText"),heroSpec=$("#heroSpec"),hero=$("#hero"),zooms=$$(".zoom"),tick=false;
+function onScroll(){
+  var y=window.scrollY,vh=window.innerHeight;
+  bar.style.transform="scaleX("+clamp(y/Math.max(1,maxY()),0,1)+")";
+  if(reduce)return;
+  var hh=hero.offsetHeight;
+  if(y<hh){var p=y/hh;heroText.style.transform="translate3d(0,"+(y*.32)+"px,0) scale("+(1-p*.08)+")";heroText.style.opacity=clamp(1-p*1.7,0,1);heroSpec.style.transform="translate3d(0,"+(y*.12)+"px,0) scaleY("+(1+p*.6)+")"}
+  zooms.forEach(function(z){var r=z.getBoundingClientRect();if(r.top>vh||r.bottom<0)return;var q=clamp((vh-r.top)/(vh*.6),0,1),e=ease3(q);z.style.transform="scale("+(.88+.12*e)+")";z.style.opacity=.3+.7*e});
+}
+window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;onScroll()})}},{passive:true});
+window.addEventListener("resize",onScroll);onScroll();
+
+/* ---------- pemicu saat terlihat ---------- */
+requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.add("in");$$(".mk,.rv",hero).forEach(function(n){n.classList.add("in")})})});
+if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add(e.target.hasAttribute("data-play")?"play":"in");io.unobserve(e.target)}})},{threshold:.2,rootMargin:"0px 0px -6% 0px"});
+  $$(".mk,.rv,[data-play]").forEach(function(n){if(!hero.contains(n))io.observe(n)});
+  var navs=$$(".nav [data-go]");
+  var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)navs.forEach(function(n){if(n.getAttribute("data-go")===e.target.id)n.setAttribute("aria-current","true");else n.removeAttribute("aria-current")})})},{rootMargin:"-35% 0px -60% 0px"});
+  $$(".soal").forEach(function(s){io2.observe(s)});
+  var io3=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.target.id==="bohr"){bohr.vis=e.isIntersecting;bohrKick()}else{mol.vis=e.isIntersecting;molKick()}
+  })});
+  io3.observe($("#bohr"));io3.observe($("#mol"));
+}else{$$(".mk,.rv").forEach(function(n){n.classList.add("in")});$$("[data-play]").forEach(function(n){n.classList.add("play")})}
+$$(".replay").forEach(function(b){b.addEventListener("click",function(){var s=b.parentNode;s.classList.remove("play");void s.offsetWidth;s.classList.add("play")})});
+})();
+</script>
+</body>
+</html>
